@@ -76,6 +76,7 @@ if __name__=='__main__':
                       
         LCD.show()
 
-    LCD.fill(0xFFFF)
+    LCD.fill(LCD.BLACK)
     LCD.show()
+    LCD.set_brightness(0)
     print("Script done")
