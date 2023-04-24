@@ -5,7 +5,7 @@ A micropython driver for the Waveshare 1.44" LCD. Default pin assignments are fo
 I got the waveshare 1.44" LCD and went through the process of getting it to work properly, which was non-trivial. The [driver and documentation](https://www.waveshare.com/wiki/Pico-LCD-1.44) supplied by Waveshare needed quite a bit of tweaking, which I wanted to share to save others the trouble. 
 
 ## Changes from the original driver
-- Added a few helper methods that I found useful
+- Added a few helper functions that I found useful
 - Created a function to change backlight brightness. Starts at 75% by default.
 - Corrected small errors in the original driver 
     - changed setting pins via Pin(0) and Pin(1) to Pin.off() and Pin.on()
@@ -50,3 +50,14 @@ Function taken from [this post](https://forum.micropython.org/viewtopic.php?t=44
 Write text to the LCD at point x,y, but multiplied by size to make it larger. E.g. setting size to 2 will double the default famebuf text size. 
 
 Taken from [this work](https://github.com/dhargopala/pico-custom-font).
+
+### Defined Colors
+
+- WHITE
+- BLACK
+- GREEN
+- RED
+- BLUE
+- GBLUE
+- YELLOW
+- PURPLE
