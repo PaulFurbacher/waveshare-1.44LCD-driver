@@ -1,17 +1,10 @@
 from waveshare144LCD import LCD_1inch44
 from machine import Pin
 
-if __name__=='__main__':
+def draw_shapes():
 
-    LCD = LCD_1inch44()
-
-    #MAXIMUM BRIGHTNESS
-    LCD.set_brightness(100)
-
-    #fill the screen with black
     LCD.fill(LCD.BLACK)
-    LCD.show()
-    
+
     #draw some labels and boxes beside the buttons
     LCD.fill_rect(15,40,75,12,LCD.YELLOW)
     LCD.rect(15,40,75,12,LCD.YELLOW)
@@ -29,6 +22,15 @@ if __name__=='__main__':
     LCD.hline(5,125,120,LCD.GBLUE)
     LCD.vline(5,5,120,LCD.GBLUE)
     LCD.vline(125,5,120,LCD.GBLUE)
+
+if __name__=='__main__':
+
+    LCD = LCD_1inch44()
+
+    #MAXIMUM BRIGHTNESS
+    LCD.set_brightness(100)
+    
+    draw_shapes()
     
     LCD.show()
    
@@ -40,15 +42,22 @@ if __name__=='__main__':
     looping=True
 
     #Loop until you press button 3 on the LCD
-    while(looping):      
+    while(looping):  
+
+        draw_shapes()
+
         if(key0.value() == 0):
             LCD.fill_rect(100,100,20,20,LCD.GBLUE)
+            LCD.write_text("HELLO",12,102,2,LCD.PURPLE)
         else :
             LCD.fill_rect(100,100,20,20,LCD.BLACK)
             LCD.rect(100,100,20,20,LCD.GBLUE)
             
         if(key1.value() == 0):
             LCD.fill_rect(100,70,20,20,LCD.GBLUE)
+            LCD.rect(15,10,75,20,LCD.GBLUE)
+            text = 'Lorem Ipsum'
+            LCD.text_wrap(text,16,12,LCD.colour(255,0,0),75,20)
         else :
             LCD.fill_rect(100,70,20,20,LCD.BLACK)
             LCD.rect(100,70,20,20,LCD.GBLUE)
