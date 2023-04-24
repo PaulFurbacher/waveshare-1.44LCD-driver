@@ -17,11 +17,12 @@ I got the waveshare 1.44" LCD and went through the process of getting it to work
 Just initialize the object and use as if it were a framebuf class.
 
 This will turn the screen blue.
-`from waveshare144LCD import LCD_1inch44
 
-LCD = LCD_1inch44()
-LCD.fill(LCD.BLUE)
-LCD.show()`
+    from waveshare144LCD import LCD_1inch44
+
+    LCD = LCD_1inch44()
+    LCD.fill(LCD.BLUE)
+    LCD.show()
 
 ## Functions
 
