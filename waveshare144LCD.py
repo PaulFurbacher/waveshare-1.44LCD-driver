@@ -189,10 +189,7 @@ class LCD_1inch44(framebuf.FrameBuffer):
         self.spi.write(self.buffer)
         self.cs.on()
     
-    def text_wrap(self,str,x,y,color,w,h,border=None): #Wraps colored text within a box starting at x,y with width w and height h. Only for default framebuf text size
-        # optional box border
-        if border is not None:
-            self.rect(x, y, w, h, border)
+    def text_wrap(self,str,x,y,color,w,h): #Wraps colored text within a box starting at x,y with width w and height h. Only for default framebuf text size
         cols = w // 8
         # for each row
         j = 0
