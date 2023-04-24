@@ -24,6 +24,8 @@ This will turn the screen blue.
     LCD.fill(LCD.BLUE)
     LCD.show()
 
+Try out the example code (based on the original Waveshare script) to see some of the functions in action.
+
 ## Functions
 
 ### set_brightness(percent)
