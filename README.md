@@ -31,6 +31,9 @@ Try out the example code (based on the original Waveshare script) to see some of
 ### set_brightness(percent)
 Sets the backlight intensity as a % of maximum. Argument is an integer 0-100.
 
+### toggle_backlight()
+Toggles the backlight on and off. Remembers what the brightness you set was.
+
 ### colour(R, G, B)
 Use this to create custom colors for the screen. Each of R, G, B is an integer from 0-255. The function will return an integer that you can pass to other framebuf type functions that need a color. 
 

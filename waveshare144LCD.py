@@ -30,7 +30,8 @@ class LCD_1inch44(framebuf.FrameBuffer):
 
         self.pwm = PWM(Pin(BL))
         self.pwm.freq(1000)
-        self.set_brightness(75)
+        self.stored_backlight = 75
+        self.set_brightness(self.stored_backlight)
 
         self.WHITE  =   self.colour(255,255,255)
         self.BLACK  =  self.colour(0,0,0)
@@ -42,11 +43,21 @@ class LCD_1inch44(framebuf.FrameBuffer):
         self.PURPLE = self.colour(255,0,255)    
 
     def set_brightness(self, percent): #controls the brightness for the LCD. Takes an integer value for % of the backlight brightness.
-        if percent < 0 or percent > 100:
-            raise ValueError()
-        
+
+        self.brightness = percent
+
         pwmValue = int((percent / 100) * 65535)
         self.pwm.duty_u16(pwmValue)
+
+    def toggle_backlight(self): #toggle the backlight on or off
+        if self.brightness > 0:
+            self.stored_backlight = self.brightness
+            self.brightness = 0
+        else:
+            self.brightness = self.stored_backlight
+        
+        self.set_brightness(self.brightness)
+            
 
     def colour(self,R,G,B) -> int: # Convert RGB888 to RGB565. Each of R,G,B is an int from 0 to 255 representing intensity of each.
         return (((G&0b00011100)<<3) +((R&0b11111000)>>3)<<8) + (B&0b11111000)+((G&0b11100000)>>5)
